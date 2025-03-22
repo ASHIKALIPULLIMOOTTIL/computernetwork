@@ -9,16 +9,16 @@ void main()
 {
     int client;
     char buffer[1024];
-    struct sockaddr_in servAddr;
+    struct sockaddr_in serverAddr;
     socklen_t addrSize;
 
     client = socket(AF_INET, SOCK_STREAM, 0);
 
-    servAddr.sin_family = AF_INET;
-    servAddr.sin_port = htons(6265);
-    servAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
+    serverAddr.sin_family = AF_INET;
+    serverAddr.sin_port = htons(6265);
+    serverAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-    connect(client, (struct sockaddr *)&servAddr, sizeof(servAddr));
+    connect(client, (struct sockaddr *)&serverAddr, sizeof(serverAddr));
 
     printf("1. Sending data to server...\n");
     strcpy(buffer, "Hi This is client\n");

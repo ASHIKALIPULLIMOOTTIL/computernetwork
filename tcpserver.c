@@ -25,6 +25,8 @@ void main()
         printf("Listening\n");
     else
         printf("Error\n");
+        
+    addrSize = sizeof(store);
 
     newSock = accept(server, (struct sockaddr *)&store, &addrSize);
 
